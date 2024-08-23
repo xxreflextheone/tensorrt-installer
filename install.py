@@ -8,6 +8,7 @@
 import os
 import subprocess
 import time
+import os.path
 
 restart = False
 
@@ -38,6 +39,7 @@ if restart:
 
 def installCudaToolkit():
     print('Downloading Cuda Toolkit...')
+    f = open("output.txt", "w")
     download_link = 'https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda_12.5.0_555.85_windows.exe'
     file_path = "cuda_12.5.0_555.85_windows.exe"
 
@@ -52,31 +54,58 @@ def installCudaToolkit():
             if chunk:
                 file.write(chunk)
                 
-    print(f'Cuda Toolkit downloaded. Attempting to install..')
-
     progress_bar.close()
 
-    if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
-        print("Error with downloading file.")
+    print(f'Cuda Toolkit downloaded. Attempting to install..')
+    f.write('Cuda Tooklkit downloaded')
 
+    if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
+        print("Error downloading file.")
+        return
+    
 
     try:
         subprocess.run([file_path, '/silent', '/noreboot'], check=True)
         print('Cuda Toolkit installed')
+        f.write('Cuda Toolkit installed successfully')
+
+        restart = True
     except subprocess.CalledProcessError as e:
         print(f'Failed to install Cuda Toolkit due to: {e}')
+        f.write('Cuda Toolkit installed successfully')
 
-installCudaToolkit()
+if not os.path.exists('output.txt'):
+    installCudaToolkit()
 
+if restart:
+    os.system('py install.py')
+    print('restarting...')
+    quit()
 
-print('Updating pip...')
-os.system('python -m pip install --upgrade pip')
+try:
+    print('Updating pip...')
+    os.system('python -m pip install --upgrade pip')
+except:
+    print('Failed to upgrade pip')
 
-print('Installing Python wheel...')
-os.system('python -m pip install wheel')
+try:
+    print('Installing Python wheel...')
+    os.system('python -m pip install wheel')
+except:
+    print('Failed to install Python wheel')
 
-print('Installing TensorRT Python wheel...')
-os.system('python -m pip install --upgrade tensorrt')
+try:
+    print('Installing TensorRT Python wheel...')
+    os.system('python -m pip install --upgrade tensorrt')
+except:
+    print('Failed to install TensorRT Python wheel')
+
+try:
+    print('Installing TensorRT')
+    os.system('pip install tensorrt')
+except:
+    print('Failed to install TensorRT')
+
 
 print('done!')
 time.sleep(5)
