@@ -72,7 +72,7 @@ def installCudaToolkit():
         restart = True
     except subprocess.CalledProcessError as e:
         print(f'Failed to install Cuda Toolkit due to: {e}')
-        f.write('Cuda Toolkit installed successfully')
+        f.write(f'Failed to install Cuda Toolkit due to: {e}')
 
 if not os.path.exists('output.txt'):
     installCudaToolkit()
