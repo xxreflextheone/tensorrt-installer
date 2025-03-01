@@ -6,9 +6,14 @@
 #python3 -m pip install --upgrade tensorrt
 
 import os
+import sys
 import subprocess
 import time
 import os.path
+
+if "--bat-launch" not in sys.argv:
+    print("Please run the script using start.bat")
+    sys.exit(1)
 
 restart = False
 
@@ -33,7 +38,7 @@ except:
     restart = True
 
 if restart:
-    os.system('py install.py')
+    os.system('py main.py')
     print('restarting...')
     quit()
 
@@ -78,7 +83,7 @@ if not os.path.exists('output.txt'):
     installCudaToolkit()
 
 if restart:
-    os.system('py install.py')
+    os.system('py main.py')
     print('restarting...')
     quit()
 
