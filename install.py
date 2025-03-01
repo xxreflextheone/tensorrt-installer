@@ -40,8 +40,8 @@ if restart:
 def installCudaToolkit():
     print('Downloading Cuda Toolkit...')
     f = open("output.txt", "w")
-    download_link = 'https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda_12.5.0_555.85_windows.exe'
-    file_path = "cuda_12.5.0_555.85_windows.exe"
+    download_link = 'https://developer.download.nvidia.com/compute/cuda/12.6.0/local_installers/cuda_12.6.0_560.76_windows.exe' # 'https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda_12.5.0_555.85_windows.exe'
+    file_path = 'cuda_12.6.0_560.76_windows.exe' #"cuda_12.5.0_555.85_windows.exe"
 
     
     response = requests.get(download_link, stream=True)
