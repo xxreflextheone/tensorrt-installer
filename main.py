@@ -38,7 +38,7 @@ except:
     restart = True
 
 if restart:
-    os.system('py main.py')
+    os.system('py main.py --bat-launch')
     print('restarting...')
     quit()
 
@@ -83,7 +83,7 @@ if not os.path.exists('output.txt'):
     installCudaToolkit()
 
 if restart:
-    os.system('py main.py')
+    os.system('py main.py --bat-launch')
     print('restarting...')
     quit()
 
