@@ -2,3 +2,6 @@
 
 # TensorRT Installer
 Installer for TensorRT written in Python
+
+# Usage
+To install TensorRT, just run the start.bat and it will automatically download CUDA 12.6 and all necessary python packages.
