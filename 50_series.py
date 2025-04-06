@@ -12,7 +12,7 @@ import time
 import os.path
 
 if "--bat-launch" not in sys.argv:
-    print("Please run the script using start.bat")
+    print("Please run the script using start_50_series.bat")
     sys.exit(1)
 
 restart = False
