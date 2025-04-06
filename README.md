@@ -4,7 +4,9 @@
 Installer for TensorRT written in Python
 
 # Compatibility
-This version supports 20 to 40 series RTX NVIDIA Graphics Cards
+This version supports RTX NVIDIA Graphics Cards
+If you have a 20 to 40 series GPU, use start.bat
+If you have a 50 series GPU, use start_50_series.bat
 
 # Usage
 To install TensorRT, just run the start.bat and it will automatically download CUDA 12.6 and all necessary python packages.
