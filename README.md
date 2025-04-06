@@ -5,7 +5,9 @@ Installer for TensorRT written in Python
 
 # Compatibility
 This version supports RTX NVIDIA Graphics Cards
+
 If you have a 20 to 40 series GPU, use start.bat
+
 If you have a 50 series GPU, use start_50_series.bat
 
 # Usage
