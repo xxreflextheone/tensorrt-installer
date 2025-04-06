@@ -21,5 +21,5 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :: Run
-python 50_series.py
+python 50_series.py --bat-launch
 pause >nul
