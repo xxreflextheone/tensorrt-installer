@@ -95,7 +95,7 @@ except:
 
 try:
     print('Installing PyTorch')
-    os.system('pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128')
+    os.system('pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128')
 except:
     print('Failed to install PyTorch')
 
