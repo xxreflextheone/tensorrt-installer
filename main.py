@@ -39,7 +39,6 @@ except:
 
 if restart:
     os.system('py main.py --bat-launch')
-    print('restarting...')
     quit()
 
 def installCudaToolkit():
@@ -84,7 +83,6 @@ if not os.path.exists('output.txt'):
 
 if restart:
     os.system('py main.py --bat-launch')
-    print('restarting...')
     quit()
 
 try:
@@ -112,6 +110,6 @@ except:
     print('Failed to install TensorRT')
 
 
-print('done!')
+print('done! You can close this window.')
 time.sleep(5)
 quit()
